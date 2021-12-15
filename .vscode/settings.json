@@ -1,0 +1,24 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 6432,
+            "driver": "PostgreSQL",
+            "name": "Local Server",
+            "database": "server",
+            "username": "hideyoshi",
+            "password": "vhnb2901"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "Via Server",
+            "database": "server",
+            "username": "hideyoshi",
+            "password": "vhnb2901"
+        }
+    ]
+}

@@ -1,0 +1,94 @@
+.contact {
+    text-align: center;
+    background-image: linear-gradient( #2e2e2e, #292929);
+    padding-top: 100px;
+    padding-bottom: 40px;
+    }
+    .contact h1{
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .contact p{
+        color: #9c9ca1;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    .intro {
+        width: 70%;
+        margin: 0 auto;
+    }
+    .contact input {
+        height: 35px;
+        color: #9c9ca1;
+    }
+    .contact textarea {
+        height: 70px;
+        color: #9c9ca1;
+    }
+    .form {
+        margin-top: 20px;
+    }
+    .form-control {
+        font-size: 15px;
+        min-width: 60%;
+        background: transparent;
+        border: 1px solid #9c9ca1;
+        border-radius: 8px;
+        padding:10px;
+        margin-bottom: 16px;
+    }
+    .btm {
+        position: relative;
+    }
+    .contact button {
+        border: none;
+        padding: 15px 32px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        background-color: #f44336;
+        width: fit-content;
+        position: relative;
+        z-index: 0;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 15px;
+    }
+
+.stories {
+    background-color: #ffffff;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right:40px;
+}
+    .stories h2 {
+        font-weight: secondary;
+        text-transform: uppercase;
+        text-align: center;
+        justify-content: center;
+        color: #818181;
+        margin-bottom: 35px;
+    }
+    .stories p{
+        font-size: 15px;
+        text-align: center;
+        justify-content: center;
+        color: #9a9a9a;
+    }
+.footer {
+    margin-top: 15px;
+    background-color: #503737;
+}
+.license {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 8vh;
+    width: 100%;
+    background-color: #2e2e2e;
+    font-family: 'Montserrat', sans-serif;
+    color: #9a9a9a;
+}

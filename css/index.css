@@ -1,0 +1,141 @@
+.presentation {
+    background-image: linear-gradient( #2e2e2e, #292929);
+    padding-top: 100px;
+    padding-bottom: 40px;
+}
+    .presentation h1{
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .presentation p{
+        color: #9c9ca1;
+        text-align: center;
+    }
+    .intro {
+        width: 70%;
+        margin: 0 auto;
+    }
+    .btm {
+        padding-top: 50px;
+        position: relative;
+    }
+    .presentation button {
+        border: none;
+        padding: 15px 32px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        background-color: #f44336;
+        width: fit-content;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 0;
+    }
+    .presentation button a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 16px;
+    }
+
+.services {
+    background-color: #ffffff;
+}
+
+    .skill-card {
+        display: grid;
+        grid-template-columns: 300px;
+        grid-template-rows: 150px 200px;
+        grid-template-areas: "image" "text";
+        background-color: #ffffff;
+        text-align: center;
+        padding-top: 40px;
+    }
+    .card-image{
+        grid-area: image;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .iconbtn {
+        width: 80px;
+        height: 80px;
+        text-decoration: none;
+        margin: 20px;
+        position: relative;
+        font-size: 40px;
+        border-radius: 50%;
+    }
+    .iconbtn::before {
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .iconbtn::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border-radius: 50%;
+        z-index: 0;
+    }
+    .card-image .iconbtn {
+        border: 4px solid #f44336;
+        color: #f44336;
+    }
+    .card-image .iconbtn::after {
+        background:  #ffffff;
+        transition: 0.45s;
+    }
+    .card-image .iconbtn:hover {
+        color:  #ffffff;
+    }
+    .card-image .iconbtn:hover::after {
+        transform: scale(1.1);
+        background:  #f44336;
+    }
+    .card-text {
+        grid-area: text;
+    }
+    .card-text h3 {
+        font-weight: secondary;
+        text-transform: uppercase;
+        color: #818181;
+        margin-bottom: 35px;
+    }
+    .card-text p {
+        font-size: 15px;
+        text-align: justify;
+        justify-content: center;
+        color: #9a9a9a;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+.stories {
+    background-color: #ffffff;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right:40px;
+}
+    .stories h2 {
+        font-weight: secondary;
+        text-transform: uppercase;
+        text-align: center;
+        justify-content: center;
+        color: #818181;
+        margin-bottom: 35px;
+    }
+    .stories p{
+        font-size: 15px;
+        text-align: center;
+        justify-content: center;
+        color: #9a9a9a;
+    }

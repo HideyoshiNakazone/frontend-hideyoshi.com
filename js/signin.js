@@ -41,11 +41,13 @@
 	
 //   };
 
-function loginClose() {
+function signinClose() {
 
-	let loginClose = document.querySelector(".loginClose")
-	let loginContain = document.querySelector('.login-container');
+	let signinClose = document.querySelector(".siginClose")
+	let signinContain = document.querySelector('.sigin-container');
 
-	loginClose.classList.add('.deactive');
-	loginContain.style.display = "none"
+	console.log("Click registered!")
+
+	signinClose.classList.add('.deactive');
+	signinContain.style.display = "none"
 };

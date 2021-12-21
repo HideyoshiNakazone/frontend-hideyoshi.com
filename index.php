@@ -1,5 +1,5 @@
 <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/src/session.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/src/include/session.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -7,13 +7,15 @@
     <head>
         <title>Hideyoshi - Creative Simple Portfolio Page</title>
         <link rel="icon" href="/img/logohideyoshi-red.png">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="/css/src/grid.css" />
-        <link rel="stylesheet" type="text/css" href="/css/src/normalize.css" />
-        <link rel="stylesheet" type="text/css" href="/css/src/header.css" />
-        <link rel="stylesheet" type="text/css" href="/css/src/footer.css" />
-        <link rel="stylesheet" type="text/css" href="/css/src/main.css" />
-        <link rel="stylesheet" type="text/css" href="/css/index.css" />
+        <meta name="viewport" content="width=device-wdth,initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/src/grid.css" />
+        <link rel="stylesheet" type="text/css" href="css/src/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="css/src/header.css" />
+        <link rel="stylesheet" type="text/css" href="css/src/footer.css" />
+        <link rel="stylesheet" type="text/css" href="css/src/signup.css" />
+        <link rel="stylesheet" type="text/css" href="css/src/login.css" />
+        <link rel="stylesheet" type="text/css" href="css/src/main.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/59950f6906.js" crossorigin="anonymous"></script>
@@ -28,7 +30,9 @@
     <body>
         <div class="wrapper">
             <?php
-                include $_SERVER['DOCUMENT_ROOT'] . '/src/base/header.php'
+                include_once $_SERVER['DOCUMENT_ROOT'] . '/src/base/header.php';
+                include_once $_SERVER['DOCUMENT_ROOT'] . '/src/base/login.php';
+                include_once $_SERVER['DOCUMENT_ROOT'] . '/src/base/signup.php';
             ?>
             <div class="presentation">
                 <div class="center">
@@ -100,6 +104,8 @@
             });
             }
         </script>
-        <script src="/sw.js"></script>
+        <script src="sw.js"></script>
+        <script src="../../js/login.js"></script>
+        <script src="../../js/signin.js"></script>
     </body>
 </html>

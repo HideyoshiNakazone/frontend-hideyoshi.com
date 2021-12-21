@@ -41,6 +41,8 @@
     }
 
 .services {
+    display: flex;
+    justify-content: center;
     background-color: #ffffff;
 }
 
@@ -49,6 +51,7 @@
         grid-template-columns: 300px;
         grid-template-rows: 150px 200px;
         grid-template-areas: "image" "text";
+        justify-content: center;
         background-color: #ffffff;
         text-align: center;
         padding-top: 40px;

@@ -119,3 +119,27 @@ separator.addEventListener('click',() => {
     menuOpen = false;
     }
 });
+
+function loginShow() {
+
+    let loginContain = document.querySelector('.login-container');
+    let mn = document.querySelector('.user-menu');
+    
+    loginContain.style.display = "flex"
+    
+    mn.classList.remove('active');
+    menuToogle = false;
+    
+}
+
+function signinShow() {
+
+    let signinContain = document.querySelector('.sigin-container');
+    let mn = document.querySelector('.user-menu');
+    
+    signinContain.style.display = "flex"
+    
+    mn.classList.remove('active');
+    menuToogle = false;
+    
+}

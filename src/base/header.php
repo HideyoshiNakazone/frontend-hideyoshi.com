@@ -29,29 +29,44 @@
             <div class="profile">
                 <i class="fas fa-user"></i>
             </div>
-            <div class="user-menu">
-                <h3>John Dow</h3>
-                <ul>
-                    <li>
-                        <i class="icon-box far fa-user"></i><a href="#">My Profile</a>
-                    </li>
-                    <li>
-                    <i class="icon-box far fa-edit"></i><a href="#">Edit Profile</a>
-                    </li>
-                    <li>
-                        <i class="icon-box fas fa-inbox"></i><a href="#">Inbox</a>
-                    </li>
-                    <li>
-                        <i class="icon-box fas fa-cogs"></i><a href="#">Settings</a>
-                    </li>
-                    <li>
-                        <i class="icon-box fas fa-question-circle"></i><a href="#">Help</a>
-                    </li>
-                    <li>
-                    <i class="icon-box fas fa-sign-out-alt"></i><a href="/logout.php">Logout</a>
-                    </li>
-                </ul>
-            </div>
+            <?php
+                if (isset($_SESSION['username'])) {
+                    echo '<div class="user-menu">
+                        <h3>'.$_SESSION['username'].'</h3>
+                        <ul>
+                            <li>
+                                <i class="icon-box far fa-user"></i><a href="#">My Profile</a>
+                            </li>
+                            <li>
+                            <i class="icon-box far fa-edit"></i><a href="#">Edit Profile</a>
+                            </li>
+                            <li>
+                                <i class="icon-box fas fa-inbox"></i><a href="#">Inbox</a>
+                            </li>
+                            <li>
+                                <i class="icon-box fas fa-cogs"></i><a href="#">Settings</a>
+                            </li>
+                            <li>
+                                <i class="icon-box fas fa-question-circle"></i><a href="#">Help</a>
+                            </li>
+                            <li>
+                            <i class="icon-box fas fa-sign-out-alt"></i><a href="src/include/logout.inc.php">Logout</a>
+                            </li>
+                        </ul>
+                    </div>';}
+                else {
+                    echo '<div class="user-menu">
+                        <h3>User Account</h3>    
+                        <ul>
+                            <li>
+                                <i class="icon-box far fa-user"></i> <a onclick="loginShow()" href="#">Login</a>
+                            </li>
+                            <li>
+                                <i class="icon-box far fa-edit"></i> <a onclick="signinShow()" href="#">Sign up</a>
+                            </li>
+                        </ul>
+                    </div>';}
+            ?>
             <!-- <div class="register">
                 <button type="button"><a href="./signup.html">Register</a></button>
             </div>
@@ -64,5 +79,5 @@
             </div>
         </div>
     </div>
-    <script src="./js/header.js"></script>
+    <script src="../../js/header.js"></script>
 </div>

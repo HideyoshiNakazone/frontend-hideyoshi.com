@@ -8,8 +8,7 @@
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="div">
-                    <h5>Name</h5>
-                    <input type="text" name="username" class="input">
+                    <input type="text" name="username" class="input" placeholder="Name">
                 </div>
             </div>
 
@@ -18,8 +17,7 @@
                     <i class="fas fa-solid fa-envelope"></i>
                 </div>
                 <div class="div">
-                    <h5>Email</h5>
-                    <input type="email" name="email" class="input">
+                    <input type="email" name="email" class="input" placeholder="Email">
                 </div>
             </div>
 
@@ -28,8 +26,7 @@
                     <i class="fas fa-solid fa-envelope"></i>
                 </div>
                 <div class="div">
-                    <h5>User Name</h5>
-                    <input type="text" name="userid" class="input">
+                    <input type="text" name="userid" class="input" placeholder="User Name">
                 </div>
             </div>
             
@@ -38,8 +35,7 @@
                     <i class="fas fa-lock"></i>
                 </div>
                 <div class="div">
-                    <h5>Password</h5>
-                    <input type="password" name="passwd" class="input">
+                    <input type="password" name="passwd" class="input" placeholder="Password">
                 </div>
             </div>
             
@@ -48,8 +44,7 @@
                     <i class="fas fa-lock"></i>
                 </div>
                 <div class="div">
-                    <h5>Confirm Password</h5>
-                    <input type="password" name="passwd_confirm" class="input">
+                    <input type="password" name="passwd_confirm" class="input" placeholder="Confirm Password">
                 </div>
             </div>
 

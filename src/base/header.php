@@ -16,14 +16,25 @@
             </div>
         </div>
         <div class="nav-user">
-            <ul class="link-container">
-                <li><i class="icon-box far fa-user"></i><a href="#">My Profile</a></li>
-                <li><i class="icon-box far fa-edit"></i><a href="#">Edit Profile</a></li>
-                <li><i class="icon-box fas fa-inbox"></i><a href="#">Inbox</a></li>
-                <li><i class="icon-box fas fa-cogs"></i><a href="#">Settings</a></li>
-                <li><i class="icon-box fas fa-question-circle"></i><a href="#">Help</a></li>
-                <li><i class="icon-box fas fa-sign-out-alt"></i><a href="/logout.php">Logout</a></li>
-            </ul>
+            <?php
+                if (isset($_SESSION['username'])) {
+                    echo '
+                        <ul class="link-container">
+                            <li><i class="icon-box far fa-user"></i><a href="#">My Profile</a></li>
+                            <li><i class="icon-box far fa-edit"></i><a href="#">Edit Profile</a></li>
+                            <li><i class="icon-box fas fa-inbox"></i><a href="#">Inbox</a></li>
+                            <li><i class="icon-box fas fa-cogs"></i><a href="#">Settings</a></li>
+                            <li><i class="icon-box fas fa-question-circle"></i><a href="#">Help</a></li>
+                            <li><i class="icon-box fas fa-sign-out-alt"></i><a href="/logout.php">Logout</a></li>
+                        </ul>';
+                } else {
+                    echo '
+                    <ul class="link-container">
+                        <li><i class="icon-box far fa-user"></i><a href="#">Login</a></li>
+                        <li><i class="icon-box far fa-edit"></i><a href="#">Sign Up</a></li>
+                    </ul>';
+                }
+            ?>
         </div>
         <div class="user">
             <div class="profile">

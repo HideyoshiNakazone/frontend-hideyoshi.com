@@ -1,9 +1,9 @@
 <?php
 
-    $servidor = "localhost";
-    $dbname = "hideyoshi";
-    $usuario = "hideyoshi";
-    $senha ="llmv6342";
+    $servidor = "postgres";
+    $dbname = "postgres";
+    $usuario = "postgres";
+    $senha ="postgres";
 
 
     $conn = pg_connect("host=$servidor dbname=$dbname user=$usuario password=$senha") or

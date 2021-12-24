@@ -77,14 +77,12 @@ form{
 	height: 45px;
 }
 
-.input-div > div > h5{
-	position: absolute;
-	left: 10px;
-	top: 50%;
-	transform: translateY(-50%);
+.input-element input::-webkit-input-placeholder{
 	color: #999;
-	font-size: 18px;
-	transition: .3s;
+}
+
+.input-element input:focus::-webkit-input-placeholder{
+	color: #f44336;
 }
 
 .input-div:before, .input-div:after{
@@ -105,31 +103,32 @@ form{
 	left: 50%;
 }
 
-.input-div.focus:before, .input-div.focus:after{
+.input-div:hover:before, .input-div:hover:after{
 	width: 50%;
 }
 
-.input-div.focus > div > h5{
-	top: -5px;
-	font-size: 15px;
+.input-div:hover > .i > i{
+	color: #f44336;
 }
-
-.input-div.focus > .i > i{
+.input-div:hover > .input-element > input::placeholder {
 	color: #f44336;
 }
 
-.input-div > div > input{
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	border: none;
+.input-div .input-element input {
+	font-size: 20px;
+	background-color: transparent;
+    border: 0px solid;
+    height: 45px;
+    width: auto;
+}
+.input-div .input-element input:focus {
+	outline-width: 0;
+}
+
+.input-div .input-element input::placeholder{
+	border: 0px solid;
 	outline: none;
-	background: none;
-	padding: 0.5rem 0.7rem;
-	font-size: 1.2rem;
-	color: #555;
+	color: #999;
 	font-family: 'poppins', sans-serif;
 }
 

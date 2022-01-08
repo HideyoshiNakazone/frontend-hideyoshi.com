@@ -1,13 +1,9 @@
-.footer {
-    margin-top: 15px;
+footer {
+    margin-top: 40px;
     background-color: #2e2e2e;
 }
 .license {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 60px;
-    width: 100%;
     background-color: #2e2e2e;
     font-family: 'Montserrat', sans-serif;
     color: #9a9a9a;

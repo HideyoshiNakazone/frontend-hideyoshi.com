@@ -3,38 +3,28 @@
     padding-top: 100px;
     padding-bottom: 40px;
 }
+
+    .presentation .jumbotron {
+        background-color: transparent;
+    }
     .presentation h1{
         color: #ffffff;
         display: flex;
         align-items: center;
         justify-content: space-around;
+        margin-bottom: 40px;
     }
     .presentation p{
         color: #9c9ca1;
-        text-align: center;
     }
-    .intro {
-        width: 70%;
-        margin: 0 auto;
-    }
-    .btm {
-        padding-top: 50px;
-        position: relative;
-    }
-    .presentation button {
+    .presentation a {
         border: none;
         padding: 15px 32px;
-        margin: 4px 2px;
+        margin-top: 40px;
         cursor: pointer;
         border-radius: 8px;
-        background-color: #f44336;
+        background-color: #f44336 !important;
         width: fit-content;
-        position: relative;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        z-index: 0;
-    }
-    .presentation button a {
         text-decoration: none;
         color: #ffffff;
         font-size: 16px;
@@ -46,22 +36,6 @@
     background-color: #ffffff;
 }
 
-    .skill-card {
-        display: grid;
-        grid-template-columns: 300px;
-        grid-template-rows: 150px 200px;
-        grid-template-areas: "image" "text";
-        justify-content: center;
-        background-color: #ffffff;
-        text-align: center;
-        padding-top: 40px;
-    }
-    .card-image{
-        grid-area: image;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
     .iconbtn {
         width: 80px;
         height: 80px;
@@ -124,9 +98,9 @@
 
 .stories {
     background-color: #ffffff;
-    padding-top: 40px;
-    padding-left: 40px;
-    padding-right:40px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+
 }
     .stories h2 {
         font-weight: secondary;

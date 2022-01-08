@@ -1,0 +1,14 @@
+{
+    "cliente" : [
+        {
+            "id" : 1,
+            "user_name" : "Vitor Hideyoshi",
+            "email" : "vitor.h.n.batista@gmail.com",
+            "userid" : "YoshiUnfriendly",
+            "passwd" : "fake_passwd",
+            "salt" : "fake_salt" ,
+            "create_date" : "fake_date"
+        }
+         
+    ]
+}

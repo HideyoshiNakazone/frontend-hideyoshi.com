@@ -8,6 +8,15 @@
             "passwd" : "fake_passwd",
             "salt" : "fake_salt" ,
             "create_date" : "fake_date"
+        },
+        {
+            "id" : 1,
+            "user_name" : "Place Holder",
+            "email" : "placeholder-fake@gmail.com",
+            "userid" : "Holder",
+            "passwd" : "fake_passwd",
+            "salt" : "fake_salt" ,
+            "create_date" : "fake_date"
         }
          
     ]

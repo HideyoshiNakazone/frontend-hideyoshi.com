@@ -1,18 +1,18 @@
 .presentation {
-    background-image: linear-gradient( #2e2e2e, #292929);
-    padding-top: 100px;
-    padding-bottom: 40px;
+    margin-top: 84px;
+    background-image: linear-gradient( #2e2e2e, #222222);
 }
 
     .presentation .jumbotron {
         background-color: transparent;
     }
     .presentation h1{
-        color: #ffffff;
         display: flex;
+        color: #ffffff;
+        margin-bottom: 40px;
         align-items: center;
         justify-content: space-around;
-        margin-bottom: 40px;
+        font-weight: 600;
     }
     .presentation p{
         color: #9c9ca1;

@@ -1,7 +1,3 @@
-<?php
-include $_SERVER['DOCUMENT_ROOT'] . '/src/include/session.inc.php';
-?>
-
 <!DOCTYPE html>
 <html ng-app="portifolio" lang="pt-BR">
 
@@ -15,6 +11,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/src/include/session.inc.php';
     <!-- This Section in reserved for Angular Declarations -->
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-locale-pt-br/angular-locale_pt-br.js"></script>
+    <script src="lib/angular-encryption/angular-encryption.js"></script>
     <script src="lib/angular-messages/angular-messages.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
 
@@ -28,7 +25,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/src/include/session.inc.php';
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/59950f6906.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/17169d4074.js" crossorigin="anonymous"></script>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="mobile-web-app-capable" content="yes">
@@ -40,96 +37,27 @@ include $_SERVER['DOCUMENT_ROOT'] . '/src/include/session.inc.php';
     <link rel="manifest" href="/manifest.json">
 
     <script src="js/app.js"></script>
-    <script src="js/controllers/mainController.js"></script>
+    <script src="js/controllers/homeController.js"></script>
+    <script src="js/components/headerComponent.js"></script>
+    <script src="js/services/usersAPIService.js"></script>
+    <script src="js/configs/routeConfig.js"></script>
+    <script src="js/values/configValue.js"></script>
 
 </head>
 
-<body ng-controller="main">
+<body>
+    
     <div class="wrapper">
-
+            
         <!-- Here the header will be included -->
-        <ng-include src="'src/base/header.php'"></ng-include>
+        <header></header>
+        
+        <!-- <ng-include src="'view/src/login.html'"></ng-include> -->
 
-        <div class="container-fluid presentation px-0">
-            <div class="container g-0">
-                <div class="row jumbotron text-center justify-content-center align-items-center">
-                    <h1>{{app|uppercase}}</h1>
-                    <div class="col-10">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id tempor augue, non consequat
-                            magna. Donec non massa libero. Maecenas imperdiet tristique augue sed ultrices. Sed
-                            malesuada massa id enim bibendum efficitur. Nullam non aliquam sem. Pellentesque habitant
-                            morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec molestie nec
-                            massa vel tristique.
-                        </p>
-                        <a class="btn btn-primary" href="./contact.html">Get in Touch</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-        <div class="container stories">
-            <div class="text-center">
-                <h2>Success Stories</h2>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure adipisci voluptates odit ab labore
-                    eos aspernatur, amet earum, deleniti tempore debitis porro omnis minima nobis et. Quae porro
-                    architecto odio.
-                    <br>
-                    Nulla et turpis magna. Pellentesque consequat tellus in laoreet euismod. In molestie arcu justo, ut
-                    semper quam venenatis sit amet. Phasellus a feugiat nisl, at volutpat magna. Lorem ipsum dolor sit
-                    amet, consectetur adipiscing elit. Donec sit amet ultricies enim. Nam viverra consectetur ante.
-                    Nullam et nunc lobortis, scelerisque erat vitae, aliquet quam. Fusce sagittis placerat suscipit.
-                    Donec dapibus tortor vel nibh aliquet sodales a id quam. Suspendisse potenti. Nunc pulvinar varius
-                    dolor nec vulputate.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure adipisci
-                    voluptates odit ab labore eos aspernatur, amet earum, deleniti tempore debitis porro omnis minima
-                    nobis et. Quae porro architecto odio.
-                </p>
-
-            </div>
-        </div>
-        <div class="container services">
-            <div class="card-deck">
-                <div class="card col-md-4 text-center">
-                    <div class="card-image">
-                        <a href="#" class='iconbtn fas fa-atom'></a>
-                    </div>
-                    <div class="card-text">
-                        <h3>One Post</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita numquam beatae
-                            eligendi recusandae, molestias alias quos qui ab voluptatibus earum nam doloribus modi vel,
-                            commodi in, impedit quas nemo.</p>
-                    </div>
-                </div>
-                <div class="card col-md-4 text-center">
-                    <div class="card-image">
-                        <a href="#" class='iconbtn fas fa-atom'></a>
-                    </div>
-                    <div class="card-text">
-                        <h3>One Post</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita numquam beatae
-                            eligendi recusandae, molestias alias quos qui ab voluptatibus earum nam doloribus modi vel,
-                            commodi in, impedit quas nemo.</p>
-                    </div>
-                </div>
-                <div class="card col-md-4 text-center">
-                    <div class="card-image">
-                        <a href="#" class='iconbtn fas fa-atom'></a>
-                    </div>
-                    <div class="card-text">
-                        <h3>One Post</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita numquam beatae
-                            eligendi recusandae, molestias alias quos qui ab voluptatibus earum nam doloribus modi vel,
-                            commodi in, impedit quas nemo.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ng-view></ng-view>
 
         <!-- Here the footer will be included -->
-        <ng-include src="'src/base/footer.html'"></ng-include>
+        <ng-include src="'view/src/footer.html'"></ng-include>
 
     </div>
     <script>
@@ -154,8 +82,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/src/include/session.inc.php';
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
         crossorigin="anonymous"></script>
 
-    <script src="../../js/login.js"></script>
-    <script src="../../js/signin.js"></script>
+
+    <script src="js/animations/login.js"></script>
+    <script src="js/animations/signin.js"></script>
+    <!-- <script src="js/animations/header.js"></script> -->
+
 </body>
 
 </html>

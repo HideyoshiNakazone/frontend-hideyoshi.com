@@ -4,10 +4,10 @@
 .principal {
     display: flex;
     position: fixed;
+    width: 100%;
+    height: 85px;
     justify-content: space-around;
     align-items: center;
-    height: 85px;
-    width: 100%;
     background-color: #2e2e2e;
     font-family: 'Montserrat', sans-serif;
     z-index: 3;
@@ -30,7 +30,7 @@
         position: absolute;
         right: 0;
         height: 92vh;
-        top: 8vh;
+        top: 85px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -49,28 +49,21 @@
         opacity: 0;
         font-size: 22px;
     }
-    .link-container li {
-        display: flex;
-        justify-content: left;
-        align-items: center;
-    }
     .link-container li .icon-box {
         width: 25px;
         height: 25px;
-        display: flex;
         margin-right: 5px;
-        align-items: center;
-        justify-content: center;font-size: 14px;
+        font-size: 15px;
         opacity: 0.5;
         color: #ffffff;
         transition: 0.5s;
     }
     .link-container li a {
-        height: fit-content;
         color: #ffffff;
         text-decoration: none;
         letter-spacing: 3px;
-        font-size: 14px;
+        font-size: 15px;
+        font-weight: 500;
     }
     .link-container li:hover i {
         opacity: .8;
@@ -95,16 +88,15 @@
     .user .profile {
         filter: blur(.1px);
         -webkit-filter: blur(.1px);
-        margin: 0;
     }
 
     .profile:hover {
         cursor: pointer;
     }
     .profile i {
-        border: 5px solid #ffffff;
+        border: 4px solid #ffffff;
         padding: 5px 8px;
-        font-size: 30px;
+        font-size: 25px;
         color: #ffffff;
         border-radius: 50%;
     }
@@ -288,36 +280,26 @@
         all: initial;
         all: unset;
         position: relative;
-        height: 50px;
-        width: 50px;
         }
         
         .user .user-menu {
-            display: absolute;
-            transform: translateX(-120px);
-            background-color: #ffffff;
             width: 180px;
             margin-top: 15px;
-            box-sizing: 0 5px 25px rgba(0,0,0,0.1);
+            margin-left: -95px;
             border-radius: 8px;
-            transition: 0.5s;
-            visibility: hidden;
-            opacity: 0;
-        }
-        .user .user-menu.active {
-            opacity: 1;
-            visibility: visible;
+            background-color: #ffffff;
             border: 1px solid rgba(46,46,46,.3);
+            box-sizing: 0 5px 25px rgba(0,0,0,0.1);
         }
         .user .user-menu::before {
             content: '';
-            top: -9px;
+            top: -8px;
             width: 15px;
             height: 15px;
             position: absolute;
             background-color: #ffffff;
             border-top: 1px solid rgba(46,46,46,.3);
-            transform: translateX(135px) rotate(45deg);
+            transform: translateX(123px) rotate(45deg);
         }
         .user .user-menu h3 {
             width: 100%;
@@ -327,39 +309,37 @@
             font-weight: 500;
     
         }
-        .user .user-menu ul li {
-            list-style: none;
+        .user .user-menu .dropdown-item {
             padding: 10px 0;
             border-top: 1px solid rgba(0,0,0,0.05);
             display: flex;
-            align-items: center;
         }
-        .user .user-menu ul li .icon-box {
+        .user .user-menu .dropdown-item .icon-box {
             width: 25px;
             height: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .user .user-menu ul li i {
+        .user .user-menu .dropdown-item i {
             font-size: 20px;
             margin-left: 20px;
             margin-right: 10px;
             opacity: 0.5;
             transition: 0.5s;
         }
-        .user .user-menu ul li:hover i {
+        .user .user-menu .dropdown-item:hover i {
             opacity: 1;
             color: #f44336;
             transition: .5s;
         }
-        .user .user-menu ul li a {
+        .user .user-menu .dropdown-item a {
             display: inline-block;
             text-decoration: none;
             color: #555;
             font-weight: 500;
         }
-        .user .user-menu ul li:hover a {
+        .user .user-menu .dropdown-item:hover a {
             color: #555;
             transition: .5s;
         }

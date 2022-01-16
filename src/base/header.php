@@ -1,15 +1,15 @@
 <div class="header">
     <div class="principal">
         <div class="logo">
-            <a href=""><img src="./img/logohideyoshi-white.png" alt=""></a>
+            <a href="/"><img src="./img/logohideyoshi-white.png" alt=""></a>
         </div>
         <div class="separator"></div>
         <div class="nav-links">
             <ul class="link-container">
-                <li><a href="/index.php">Home</a></li>
-                <li><a href="/index.html">Work</a></li>
-                <li><a href="/contact.php">Contact</a></li>
-                <li><a href="/index.html">About</a></li>
+                <li><a href="#!/">Home</a></li>
+                <li><a href="#!/main">Work</a></li>
+                <li><a href="#!/contact">Contact</a></li>
+                <li><a href="#!/index.html">About</a></li>
             </ul>
             <div class="profile">
                 <i class="fas fa-user"></i>

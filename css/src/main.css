@@ -2,9 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Lora', serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-h1, h2, h3, h4 {
+h1, h2, h3, h4, a {
     font-family: 'Montserrat', sans-serif;
 }
 .wrapper {

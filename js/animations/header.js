@@ -1,18 +1,24 @@
-const btn = document.querySelector('.user .profile');
+const btn = document.querySelector(".user .profile");
 const mn = document.querySelector('.user-menu');
-let menuToogle = false;
+var menuToogle = false;
 
-btn.addEventListener('click', () => {
-    //Toggle Nav
-    if(!menuToogle) {
-        mn.classList.add('active');
-        menuToogle = true;
+console.log(btn);
+console.log(mn);
 
-    } else {
-        mn.classList.remove('active');
-        menuToogle = false;
-    }
-});
+if (btn) {
+    btn.addEventListener('click', function () {
+        //Toggle Nav
+        // if(!menuToogle) {
+        //     mn.classList.add('active');
+        //     menuToogle = true;
+    
+        // } else {
+        //     mn.classList.remove('active');
+        //     menuToogle = false;
+        // }
+        console.log("Click registered")
+    });    
+}
 
 // Declaring the Navigation Menu variables
 

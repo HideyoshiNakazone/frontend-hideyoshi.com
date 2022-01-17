@@ -5,8 +5,8 @@
             "user_name" : "Vitor Hideyoshi",
             "email" : "vitor.h.n.batista@gmail.com",
             "userid" : "YoshiUnfriendly",
-            "passwd" : "fake_passwd",
-            "salt" : "fake_salt" ,
+            "passwd" : "0d6be69b264717f2dd33652e212b173104b4a647b7c11ae72e9885f11cd312fb",
+            "salt" : "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ,
             "create_date" : "fake_date"
         },
         {

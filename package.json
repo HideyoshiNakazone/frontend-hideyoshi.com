@@ -78,5 +78,6 @@
   "bugs": {
     "url": "https://github.com/HideyoshiNakazone/hideyoshi.com/issues"
   },
-  "homepage": "https://github.com/HideyoshiNakazone/hideyoshi.com#readme"
+  "homepage": "https://github.com/HideyoshiNakazone/hideyoshi.com#readme",
+  "devDependencies": {}
 }

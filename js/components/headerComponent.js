@@ -1,7 +1,4 @@
-var headerController = function ($scope, usersAPI, config, sha256) {
-
-    $scope.contato = {};
-    $scope.contato.userid = "Vitor Hideyoshi";
+var headerController = function ($scope, $rootScope, clientesAPI, config, sha256) {
 
     const mnBtn = document.querySelector('.menu');
     const navLink = document.querySelector('.nav-links');
@@ -107,29 +104,49 @@ var headerController = function ($scope, usersAPI, config, sha256) {
         }
     });
 
-    $scope.servCliente = [];
+    var getRandomString = function (length) {
+        var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var result = '';
+        for (var i = 0; i < length; i++) {
+            result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
+        }
+        return result;
+    }
 
-    $scope.fetchClienteData = function (cliente) {
-        usersAPI.getUser(cliente).then(function (response) {
-            $scope.servCliente = response.data;
-        }, function (error) {
-            console.log(error)
-        });
+    var pepper = "ThisIsASimplePepper";
+
+    verifyClienteData = function (servCliente, cliente) {
+
+        if (servCliente) {
+
+            var passwdToVerify = sha256.convertToSHA256(pepper + cliente.passwd + servCliente.salt);
+
+            if (servCliente.userid == cliente.userid && passwdToVerify == servCliente.passwd) {
+                $rootScope.cliente = servCliente;
+            } else {
+                delete $scope.cliente;
+            }
+
+        } else {
+            delete $scope.cliente;
+            $scope.clienteForm.$setPristine();
+        }
+
     }
 
     $scope.loginCliente = function (cliente) {
-        $scope.cliente = cliente;
-        $scope.fetchClienteData(cliente);
-        if ($scope.cliente.userid == $scope.servCliente.userid) {
-            $scope.cliente = cliente;
-        } else {
-            $scope.cliente = null;
-        }
-        console.log($scope.cliente);
+        clientesAPI.getCliente(cliente).then(function (response) {
+            verifyClienteData(response.data[0], cliente);
+        }, function (error) {
+            delete $scope.cliente;
+            console.log(error);
+        });
     };
 
-    $scope.toogleMnUserButton = function () {
-        $scope.mnUserActive=!$scope.mnUserActive;
+    $scope.logoutEndSession = function () {
+        delete $rootScope.cliente;
+        delete $scope.cliente;
+        $scope.clienteForm.$setPristine();
     }
 
 };

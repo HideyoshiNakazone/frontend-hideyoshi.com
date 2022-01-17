@@ -310,9 +310,10 @@
     
         }
         .user .user-menu .dropdown-item {
+            display: flex;
             padding: 10px 0;
             border-top: 1px solid rgba(0,0,0,0.05);
-            display: flex;
+            background-color: #ffffff !important;
         }
         .user .user-menu .dropdown-item .icon-box {
             width: 25px;

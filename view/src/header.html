@@ -13,30 +13,13 @@
                 <li><a href="#!/contact">Contact</a></li>
                 <li><a href="#!/">About</a></li>
             </ul>
-            <div class="profile">
+            <div class="profile btn">
                 <i class="fas fa-user"></i>
             </div>
-        </div>
-        <div class="nav-user">
-            <ul ng-show="cliente" class="link-container">
-                <li><i class="icon-box far fa-user"></i><a href="#">My Profile</a></li>
-                <li><i class="icon-box far fa-edit"></i><a href="#">Edit Profile</a></li>
-                <li><i class="icon-box fas fa-inbox"></i><a href="#">Inbox</a></li>
-                <li><i class="icon-box fas fa-cogs"></i><a href="#">Settings</a></li>
-                <li><i class="icon-box fas fa-question-circle"></i><a href="#">Help</a></li>
-                <li><i class="icon-box fas fa-sign-out-alt"></i><a href="/logout.php">Logout</a></li>
-            </ul>
-            <ul ng-show="!cliente" class="link-container">
-                <li><i class="icon-box far fa-user"></i><a href="#" data-toggle="modal"
-                        data-target="#loginPopUp">Login</a></li>
-                <li><i class="icon-box far fa-user"></i><a href="#" data-toggle="modal"
-                        data-target="#loginPopUp">SignUp</a></li>
-            </ul>
         </div>
         <div ng-if="cliente" class="user">
             <div class="profile btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-                <!-- <div class="profile" ng-click="mnUserActive=!mnUserActive"> -->
                 <i class="fas fa-user"></i>
             </div>
             <div class="user-menu-options">
@@ -60,7 +43,6 @@
         <div ng-if="!cliente" class="user">
             <div class="profile btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-                <!-- <div class="profile" ng-click="mnUserActive=!mnUserActive"> -->
                 <i class="fas fa-user"></i>
             </div>
             <div class="user-menu dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -75,12 +57,28 @@
                 </div>
             </div>
         </div>
-        </div>
         <div class="menu">
             <div class="burger">
             </div>
         </div>
+        <div class="nav-user">
+            <ul ng-show="cliente" class="link-container">
+                <li><i class="icon-box far fa-user"></i><a href="#">My Profile</a></li>
+                <li><i class="icon-box far fa-edit"></i><a href="#">Edit Profile</a></li>
+                <li><i class="icon-box fas fa-inbox"></i><a href="#">Inbox</a></li>
+                <li><i class="icon-box fas fa-cogs"></i><a href="#">Settings</a></li>
+                <li><i class="icon-box fas fa-question-circle"></i><a href="#">Help</a></li>
+                <li><i class="icon-box fas fa-sign-out-alt"></i><a href="/logout.php">Logout</a></li>
+            </ul>
+            <ul ng-show="!cliente" class="link-container">
+                <li><i class="icon-box far fa-user"></i><a href="#" data-toggle="modal"
+                        data-target="#loginPopUp">Login</a></li>
+                <li><i class="icon-box far fa-user"></i><a href="#" data-toggle="modal"
+                        data-target="#loginPopUp">SignUp</a></li>
+            </ul>
+        </div>
     </div>
+</div>
 </div>
 
 
@@ -143,8 +141,9 @@
                                     <i class="fas fa-lock"></i>
                                 </div>
                                 <div class="input-element">
-                                    <input type="password" autocomplete="off" name="passwd" ng-model="cliente.passwd" class="input"
-                                        ng-required="true" ng-minlength="4" ng-maxlength="6" placeholder="Password">
+                                    <input type="password" autocomplete="off" name="passwd" ng-model="cliente.passwd"
+                                        class="input" ng-required="true" ng-minlength="4" ng-maxlength="6"
+                                        placeholder="Password">
                                 </div>
                             </div>
                         </div>

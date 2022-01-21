@@ -20,5 +20,6 @@
             "username": "hideyoshi",
             "password": "vhnb2901"
         }
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

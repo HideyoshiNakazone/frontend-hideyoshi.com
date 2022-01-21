@@ -1,4 +1,6 @@
-var headerController = function ($scope, $rootScope, clientesAPI, config, sha256) {
+var headerController = function ($scope, $rootScope, $http, sha256) {
+
+    $rootScope.app = "Hideyoshi Portifolio";
 
     const mnBtn = document.querySelector('.menu');
     const navLink = document.querySelector('.nav-links');
@@ -104,49 +106,45 @@ var headerController = function ($scope, $rootScope, clientesAPI, config, sha256
         }
     });
 
-    var getRandomString = function (length) {
-        var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        var result = '';
-        for (var i = 0; i < length; i++) {
-            result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
-        }
-        return result;
-    }
-
-    var pepper = "ThisIsASimplePepper";
-
-    verifyClienteData = function (servCliente, cliente) {
-
-        if (servCliente) {
-
-            var passwdToVerify = sha256.convertToSHA256(pepper + cliente.passwd + servCliente.salt);
-
-            if (servCliente.userid == cliente.userid && passwdToVerify == servCliente.passwd) {
-                $rootScope.cliente = servCliente;
-            } else {
-                delete $scope.cliente;
+    $scope.loginClient = function (client) {
+        $http.post("/user/validate",client).then(function (response) {
+            if (response.data != false) {
+                $rootScope.Client = response.data;
+            } else if (response.data == false) {
+                delete $scope.client;
+                $scope.clientForm.$setPristine();
             }
-
-        } else {
-            delete $scope.cliente;
-            $scope.clienteForm.$setPristine();
-        }
-
-    }
-
-    $scope.loginCliente = function (cliente) {
-        clientesAPI.getCliente(cliente).then(function (response) {
-            verifyClienteData(response.data[0], cliente);
         }, function (error) {
-            delete $scope.cliente;
-            console.log(error);
+            delete $scope.client;
+            $scope.clientForm.$setPristine();
         });
     };
 
+    $scope.createClient = function (client) {
+        $http.post("/user/create", client).then(function (response) {
+            console.log(response.data)
+            if (response.data != false) {
+                $rootScope.Client = response.data;
+            } else if (response.data == false) {
+                delete $scope.client;
+                $scope.clientForm.$setPristine();
+            }
+        }, function (error) {
+            delete $scope.client;
+            $scope.clientForm.$setPristine();
+        });
+    }
+
     $scope.logoutEndSession = function () {
-        delete $rootScope.cliente;
-        delete $scope.cliente;
-        $scope.clienteForm.$setPristine();
+        delete $rootScope.Client;
+        delete $scope.client;
+        $scope.clientForm.$setPristine();
+    }
+
+    $scope.clearForm = function () {
+        delete $scope.client;
+        $scope.signupForm.$setPristine();
+        $scope.loginForm.$setPristine();
     }
 
 };

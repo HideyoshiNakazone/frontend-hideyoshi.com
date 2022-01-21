@@ -1,4 +1,4 @@
-/* Login Modal */
+/* Global User Modal */
 
 .modal-content {
     width: 450px;
@@ -104,4 +104,9 @@
         outline: none;
         color: #999;
         font-family: 'poppins', sans-serif;
+    }
+
+    .modal-body .input-div .input-element textarea:focus,
+    .modal-body .input-div .input-element  input:focus {
+        outline: none;
     }

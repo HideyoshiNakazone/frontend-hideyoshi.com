@@ -17,7 +17,7 @@
         </div>
         <div class="nav-user">
             <?php
-                if (isset($_SESSION['username'])) {
+                if (isset($_SESSION['full_name'])) {
                     echo '
                         <ul class="link-container">
                             <li><i class="icon-box far fa-user"></i><a href="#">My Profile</a></li>
@@ -41,9 +41,9 @@
                 <i class="fas fa-user"></i>
             </div>
             <?php
-                if (isset($_SESSION['username'])) {
+                if (isset($_SESSION['full_name'])) {
                     echo '<div class="user-menu">
-                        <h3>'.$_SESSION['username'].'</h3>
+                        <h3>'.$_SESSION['full_name'].'</h3>
                         <ul>
                             <li>
                                 <i class="icon-box far fa-user"></i><a href="#">My Profile</a>

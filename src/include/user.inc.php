@@ -7,29 +7,29 @@ require_once 'functions.inc.php';
 
 if (isset($_POST["submit_signup"])) {
     
-    $username = $_POST["username"];
+    $full_name = $_POST["full_name"];
     $email = $_POST["email"];
-    $userid = $_POST["userid"];
+    $username = $_POST["username"];
     $passwd = $_POST["passwd"];
     $passwd_confirm = $_POST["passwd_confirm"];
 
-    if (emptyInputSignup($username, $email, $userid, $passwd, $passwd_confirm) !== false) {
+    if (emptyInputSignup($full_name, $email, $username, $passwd, $passwd_confirm) !== false) {
         header("location: ../../index.php?error=emptyinput");
     }
 
-    if (invalidUserId($userid) !== false) {
-        header("location: ../../index.php?error=invaliduserid");
+    if (invalidusername($username) !== false) {
+        header("location: ../../index.php?error=invalidusername");
     }
 
     if (passwdMatch($passwd, $passwd_confirm) !== false) {
         header("location: ../../index.php?error=passwdMatch");
     }
 
-    if (useridExists($conn, $userid, $email) !== false) {
-        header("location: ../../index.php?error=useridTaken");
+    if (usernameExists($conn, $username, $email) !== false) {
+        header("location: ../../index.php?error=usernameTaken");
     }
     
-    if (createUser($conn, $username, $email, $userid, $passwd) !== false) {
+    if (createUser($conn, $full_name, $email, $username, $passwd) !== false) {
         header("location: ../../index.php?error=dbfailed");
     }
 
@@ -37,10 +37,10 @@ if (isset($_POST["submit_signup"])) {
 
 } elseif (isset($_POST["submit_login"])) {
     
-    $userid = $_POST["userid"];
+    $username = $_POST["username"];
     $passwd = $_POST["passwd"];
 
-    if (checkCredentials($conn, $userid, $passwd) !== false) {
+    if (checkCredentials($conn, $username, $passwd) !== false) {
         header("location: ../../index.php?error=userundefined");
     }
     

@@ -17,14 +17,14 @@
                 <i class="fas fa-user"></i>
             </div>
         </div>
-        <div ng-if="cliente" class="user">
+        <div ng-if="$root.Client" class="user">
             <div class="profile btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <i class="fas fa-user"></i>
             </div>
             <div class="user-menu-options">
                 <div class="user-menu dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <h3>{{cliente.userid}}</h3>
+                    <h3>{{$root.Client.username}}</h3>
                     <div class="dropdown-item">
                         <i class="icon-box far fa-user"></i><a href="#">My Profile</a>
                     </div>
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div ng-if="!cliente" class="user">
+        <div ng-if="!$root.Client" class="user">
             <div class="profile btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 <i class="fas fa-user"></i>
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="nav-user">
-            <ul ng-show="cliente" class="link-container">
+            <ul ng-show="client" class="link-container">
                 <li><i class="icon-box far fa-user"></i><a href="#">My Profile</a></li>
                 <li><i class="icon-box far fa-edit"></i><a href="#">Edit Profile</a></li>
                 <li><i class="icon-box fas fa-inbox"></i><a href="#">Inbox</a></li>
@@ -70,11 +70,11 @@
                 <li><i class="icon-box fas fa-question-circle"></i><a href="#">Help</a></li>
                 <li><i class="icon-box fas fa-sign-out-alt"></i><a href="/logout.php">Logout</a></li>
             </ul>
-            <ul ng-show="!cliente" class="link-container">
+            <ul ng-show="!client" class="link-container">
                 <li><i class="icon-box far fa-user"></i><a href="#" data-toggle="modal"
                         data-target="#loginPopUp">Login</a></li>
                 <li><i class="icon-box far fa-user"></i><a href="#" data-toggle="modal"
-                        data-target="#loginPopUp">SignUp</a></li>
+                        data-target="#signupPopUp">SignUp</a></li>
             </ul>
         </div>
     </div>
@@ -82,11 +82,11 @@
 </div>
 
 
-<div class="modal fade" id="loginPopUp" tabindex="-1" role="dialog" aria-labelledby="loginPopUp" aria-hidden="true">
+<div class="mx-auto modal fade" id="loginPopUp" tabindex="-1" role="dialog" aria-labelledby="loginPopUp" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+        <div class="modal-content mx-auto">
             <div class="modal-header justify-content-center align-items-center" style="border-bottom: 0 none;">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-ng-click="clearForm()">
                     <span class="close-btn" aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -98,7 +98,7 @@
                     <h2>WELCOME</h2>
                 </div>
                 <div class="row justify-content-center align-items-center">
-                    <form name="clienteForm" class=" justify-content-center align-items-center">
+                    <form name="loginForm" class=" justify-content-center align-items-center">
 
                         <div class="form-group mt-3">
                             <div class="row input-div">
@@ -106,29 +106,29 @@
                                     <i class="fa-solid fa-user"></i>
                                 </div>
                                 <div class="input-element">
-                                    <input type="text" name="userid" ng-model="cliente.userid" ng-required="true"
+                                    <input type="text" name="username" ng-model="client.username" ng-required="true"
                                         ng-minlength="3" ng-maxlength="20" class="input" placeholder="Username">
                                 </div>
                             </div>
                         </div>
-                        <div ng-messages="clienteForm.userid.$error" ng-if="clienteForm.userid.$dirty">
+                        <div ng-messages="loginForm.username.$error" ng-if="loginForm.username.$dirty">
                             <div ng-message="required" class="alert alert-danger alert-dismissible fade show"
                                 role="alert">
-                                <strong>Preencha o campo Nome</strong>
+                                <strong>Please enter a Username</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div ng-message="minlength" class="alert alert-danger alert-dismissible fade show"
                                 role="alert">
-                                <strong>O campo Nome deve conter no mínimo 3 caracteres</strong>
+                                <strong>Minimum lenght of 3 characters</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div ng-message="maxlength" class="alert alert-danger alert-dismissible fade show"
                                 role="alert">
-                                <strong>O campo Nome deve conter no máximo 20 caracteres</strong>
+                                <strong>Maximum lenght of 20 characters</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -141,30 +141,30 @@
                                     <i class="fas fa-lock"></i>
                                 </div>
                                 <div class="input-element">
-                                    <input type="password" autocomplete="off" name="passwd" ng-model="cliente.passwd"
-                                        class="input" ng-required="true" ng-minlength="4" ng-maxlength="6"
+                                    <input type="password" autocomplete="off" name="passwd" ng-model="client.passwd"
+                                        class="input" ng-required="true" ng-minlength="4" ng-maxlength="20"
                                         placeholder="Password">
                                 </div>
                             </div>
                         </div>
-                        <div ng-messages="clienteForm.passwd.$error" ng-if="clienteForm.passwd.$dirty">
+                        <div ng-messages="loginForm.passwd.$error" ng-if="loginForm.passwd.$dirty">
                             <div ng-message="required" class="alert alert-danger alert-dismissible fade show"
                                 role="alert">
-                                <strong>Preencha o campo Password</strong>
+                                <strong>Please enter a Password</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div ng-message="minlength" class="alert alert-danger alert-dismissible fade show"
                                 role="alert">
-                                <strong>O campo Password deve conter no mínimo 4 caracteres</strong>
+                                <strong>Minimum lenght of 3 characters</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div ng-message="maxlength" class="alert alert-danger alert-dismissible fade show"
                                 role="alert">
-                                <strong>O campo Password deve conter no máximo 6 caracteres</strong>
+                                <strong>Maximum lenght of 20 characters</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -172,8 +172,179 @@
                         </div>
 
                         <div class="form-row justify-content-center align-items-center">
-                            <button type="submit" class="btn btn-primary" ng-disabled="clienteForm.$invalid"
-                                ng-click="loginCliente(cliente)" data-dismiss="modal">Submit</button>
+                            <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid"
+                                ng-click="loginClient(client)" data-dismiss="modal">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="signupPopUp" tabindex="-1" role="dialog" aria-labelledby="signupPopUp" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content mx-auto">
+            <div class="modal-header justify-content-center align-items-center" style="border-bottom: 0 none;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-ng-click="clearForm()">
+                    <span class="close-btn" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body container  justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center">
+                    <img src="img/undraw_profile_pic_ic5t.png">
+                </div>
+                <div class="row justify-content-center align-items-center">
+                    <h2>WELCOME</h2>
+                </div>
+                <div class="row justify-content-center align-items-center">
+                    <form name="signupForm" class=" justify-content-center align-items-center">
+                        
+                        <div class="form-group mt-3">
+                            <div class="row input-div">
+                                <div class="i">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <div class="input-element">
+                                    <input type="text" name="full_name" ng-model="client.full_name" ng-required="true"
+                                        ng-minlength="3" ng-maxlength="40" class="input" placeholder="Full Name">
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-messages="signupForm.full_name.$error" ng-if="signupForm.full_name.$dirty">
+                            <div ng-message="required" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <strong>Please enter a Name</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div ng-message="minlength" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <strong>Minimum lenght of 3 characters</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div ng-message="maxlength" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <strong>Maximum lenght of 40 characters</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <div class="row input-div">
+                                <div class="i">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <div class="input-element">
+                                    <input type="text" name="email" ng-model="client.email" ng-required="true"
+                                        ng-minlength="10" ng-maxlength="40" class="input" placeholder="E-mail">
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$dirty">
+                            <div ng-message="required" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <strong>Please enter an E-mail</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div ng-message="minlength" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <strong>Minimum lenght of 10 characters</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div ng-message="maxlength" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <strong>Maximum lenght of 40 characters</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <div class="row input-div">
+                                <div class="i">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <div class="input-element">
+                                    <input type="text" name="username" ng-model="client.username" ng-required="true"
+                                        ng-minlength="3" ng-maxlength="20" class="input" placeholder="Username">
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-messages="signupForm.username.$error" ng-if="signupForm.username.$dirty">
+                            <div ng-message="required" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <strong>Please enter a Username</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div ng-message="minlength" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <strong>Minimum lenght of 3 characters</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div ng-message="maxlength" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <strong>Maximum lenght of 20 characters</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <div class="row input-div pass">
+                                <div class="i">
+                                    <i class="fas fa-lock"></i>
+                                </div>
+                                <div class="input-element">
+                                    <input type="password" autocomplete="off" name="passwd" ng-model="client.passwd"
+                                        class="input" ng-required="true" ng-minlength="4" ng-maxlength="20"
+                                        placeholder="Password">
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-messages="signupForm.passwd.$error" ng-if="signupForm.passwd.$dirty">
+                            <div ng-message="required" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <strong>Please enter a Password</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div ng-message="minlength" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <strong>Minimum lenght of 4 characters</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div ng-message="maxlength" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <strong>Maximum lenght of 20 characters</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-row justify-content-center align-items-center">
+                            <button type="submit" class="btn btn-primary" ng-disabled="signupForm.$invalid"
+                                ng-click="createClient(client)" data-dismiss="modal">Submit</button>
                         </div>
                     </form>
                 </div>

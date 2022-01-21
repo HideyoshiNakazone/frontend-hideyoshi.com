@@ -4,7 +4,7 @@ var CACHE_NAME = '[v0.1.0] Hideyoshi';
 //Files to be Cached
 var urlsToCache = [
     '/',
-    '/index.php',
+    '/index.html',
     '/contact.php',
     '/login.php',
     '/signup.html',

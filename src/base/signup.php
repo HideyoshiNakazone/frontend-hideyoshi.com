@@ -8,7 +8,7 @@
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="div">
-                    <input type="text" name="username" class="input" placeholder="Name">
+                    <input type="text" name="full_name" class="input" placeholder="Name">
                 </div>
             </div>
 
@@ -26,7 +26,7 @@
                     <i class="fas fa-solid fa-envelope"></i>
                 </div>
                 <div class="div">
-                    <input type="text" name="userid" class="input" placeholder="User Name">
+                    <input type="text" name="username" class="input" placeholder="User Name">
                 </div>
             </div>
             

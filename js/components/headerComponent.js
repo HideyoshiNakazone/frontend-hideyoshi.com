@@ -1,4 +1,4 @@
-var headerController = function ($scope, $rootScope, $http, sha256) {
+var headerController = function ($scope, $rootScope, $http) {
 
     $rootScope.app = "Hideyoshi Portifolio";
 

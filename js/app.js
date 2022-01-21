@@ -1,1 +1,1 @@
-angular.module("portifolio", ["ngMessages","ngRoute","ngEncryption"])
+angular.module("portifolio", ["ngMessages","ngRoute"])

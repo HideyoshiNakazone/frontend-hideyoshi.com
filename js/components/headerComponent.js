@@ -112,27 +112,10 @@ var headerController = function ($scope, $rootScope, $http, $uibModal, $log) {
         })
     });
 
-    var validateSession = function () {
-        $http.get('/session/validate',{withCredentials: true}).then(function (res) {
-            if (res) {
-                $rootScope.client = res;
-            }
-        })
-    }
-
-    $scope.openClientResult = function () {
-        $uibModal.open({
-            component: "clienteResult"
-        }).result.then(function (result) {
-            
-        }, function (reason) {
-            
-        });
-    };
-
     $scope.openLoginPopup = function () {
         $uibModal.open({
-            component: "loginPopup"
+            component: "loginPopup",
+            windowClass: 'app-modal-window'
         }).result.then(function (result) {
             
         }, function (reason) {
@@ -142,7 +125,8 @@ var headerController = function ($scope, $rootScope, $http, $uibModal, $log) {
 
     $scope.openSignupPopup = function () {
         $uibModal.open({
-            component: "signupPopup"
+            component: "signupPopup",
+            windowClass: 'app-modal-window'
         }).result.then(function (result) {
             
         }, function (reason) {

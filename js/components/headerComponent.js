@@ -1,6 +1,4 @@
-var headerController = function ($scope, $rootScope, $http) {
-
-    $rootScope.app = "Hideyoshi Portifolio";
+var headerController = function ($scope, $rootScope, $http, $uibModal, $log) {
 
     const mnBtn = document.querySelector('.menu');
     const navLink = document.querySelector('.nav-links');
@@ -106,45 +104,59 @@ var headerController = function ($scope, $rootScope, $http) {
         }
     });
 
-    $scope.loginClient = function (client) {
-        $http.post("/user/validate",client).then(function (response) {
-            if (response.data != false) {
-                $rootScope.Client = response.data;
-            } else if (response.data == false) {
-                delete $scope.client;
-                $scope.clientForm.$setPristine();
+    $(function () {
+        $('.dropdown-menu').on('click', function (event) {
+            if (!$(event.target).closest('a').length) {
+                event.stopPropagation();
             }
-        }, function (error) {
-            delete $scope.client;
-            $scope.clientForm.$setPristine();
+        })
+    });
+
+    var validateSession = function () {
+        $http.get('/session/validate',{withCredentials: true}).then(function (res) {
+            if (res) {
+                $rootScope.client = res;
+            }
+        })
+    }
+
+    $scope.openClientResult = function () {
+        $uibModal.open({
+            component: "clienteResult"
+        }).result.then(function (result) {
+            
+        }, function (reason) {
+            
         });
     };
 
-    $scope.createClient = function (client) {
-        $http.post("/user/create", client).then(function (response) {
-            console.log(response.data)
-            if (response.data != false) {
-                $rootScope.Client = response.data;
-            } else if (response.data == false) {
-                delete $scope.client;
-                $scope.clientForm.$setPristine();
-            }
-        }, function (error) {
-            delete $scope.client;
-            $scope.clientForm.$setPristine();
+    $scope.openLoginPopup = function () {
+        $uibModal.open({
+            component: "loginPopup"
+        }).result.then(function (result) {
+            
+        }, function (reason) {
+            
         });
-    }
+    };
+
+    $scope.openSignupPopup = function () {
+        $uibModal.open({
+            component: "signupPopup"
+        }).result.then(function (result) {
+            
+        }, function (reason) {
+            
+        });
+    };
 
     $scope.logoutEndSession = function () {
-        delete $rootScope.Client;
-        delete $scope.client;
-        $scope.clientForm.$setPristine();
-    }
-
-    $scope.clearForm = function () {
-        delete $scope.client;
-        $scope.signupForm.$setPristine();
-        $scope.loginForm.$setPristine();
+        $http.post('/session/destroy',{}).then(function () {
+            delete $rootScope.Client;
+            delete $scope.client;
+        }, function (error) {
+            console.log(error);
+        })
     }
 
 };

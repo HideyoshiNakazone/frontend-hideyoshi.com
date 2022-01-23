@@ -16,15 +16,15 @@ module.exports = {
     verifyClientData : function (client) {
         return jsonAPI.getClient(client).then(function (response) {
             var servClient = response.data[0];
-            if (servClient) {
+            if (servClient && servClient.username == client.username) {
                 let passwdToVerify = sha256(pepper + client.passwd + servClient.salt);
-                if (servClient.username == client.username && passwdToVerify == servClient.passwd) {
+                if (passwdToVerify == servClient.passwd) {
                     return servClient;
                 } else {
-                    return false;
+                    throw new Error("Wrong Password, please try again.");
                 }
             } else {
-                return false;
+                throw new Error("User not found, please create a new User Account");
             }
         })
     },

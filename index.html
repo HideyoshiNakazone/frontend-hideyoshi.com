@@ -10,10 +10,12 @@
 
     <!-- This Section in reserved for Angular Declarations -->
     <script src="lib/angular/angular.js"></script>
+    <script src="lib/ui-bootstrap4/dist/ui-bootstrap.js"></script>
+    <script src="lib/ui-bootstrap4/dist/ui-bootstrap-tpls.js"></script>
     <script src="lib/angular-locale-pt-br/angular-locale_pt-br.js"></script>
     <script src="lib/angular-messages/angular-messages.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
-
+    
     <link rel="stylesheet" type="text/css" href="css/src/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/src/userForm.css" />
     <link rel="stylesheet" type="text/css" href="css/src/header.css" />
@@ -35,13 +37,17 @@
     <link rel="manifest" href="/manifest.json">
 
     <script src="js/app.js"></script>
+    <script src="js/controllers/appController.js"></script>
     <script src="js/controllers/homeController.js"></script>
     <script src="js/components/headerComponent.js"></script>
+    <script src="js/components/resultComponent.js"></script>
+    <script src="js/components/loginPopupComponent.js"></script>
+    <script src="js/components/signupPopupComponent.js"></script>
     <script src="js/configs/routeConfig.js"></script>
 
 </head>
 
-<body>
+<body ng-controller="appController">
     
     <div class="wrapper">
             
@@ -49,9 +55,8 @@
         <header></header>
         
         <!-- <ng-include src="'view/src/login.html'"></ng-include> -->
-
         <ng-view></ng-view>
-
+        
         <!-- Here the footer will be included -->
         <ng-include src="'view/src/footer.html'"></ng-include>
 

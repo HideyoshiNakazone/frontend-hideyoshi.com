@@ -1,17 +1,49 @@
 /* Global User Modal */
 
-.modal-content {
-    width: 450px;
-    height: fit-content;
-    border-radius: 15px;
-}
+.modal {
+    text-align: center;
+    padding: 0!important;
+}  
+    .modal:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+    }
+
+    .modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+    }
+
+    
+    .modal-content {
+        width: 450px;
+        height: fit-content;
+        border-radius: 15px;
+    }
+
+    @media screen and (max-width: 470px) {
+        .modal-content {
+            width: 320px;
+            height: fit-content;
+            border-radius: 15px;
+        }
+    }
+
     .modal-header .close {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
+        margin-top: -25px;
     }
 
     .modal-header .close .close-btn {
-        font-size: 50px;
+        font-size: 40px;
+    }
+
+    .modal-content .alert {
+        margin: 0 auto;
     }
 
     .modal-body {

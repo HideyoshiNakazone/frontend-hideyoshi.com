@@ -1,0 +1,15 @@
+{
+  "name": "ui-bootstrap4",
+  "homepage": "https://github.com/Morgul/ui-bootstrap4",
+  "version": "3.0.7",
+  "_release": "3.0.7",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.0.7",
+    "commit": "0c839cb8b545782cdbc6c937eca8dd06348e1b49"
+  },
+  "_source": "https://github.com/Morgul/ui-bootstrap4.git",
+  "_target": "^3.0.7",
+  "_originalSource": "ui-bootstrap4",
+  "_direct": true
+}

@@ -15,7 +15,7 @@
     <script src="lib/angular-locale-pt-br/angular-locale_pt-br.js"></script>
     <script src="lib/angular-messages/angular-messages.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
-    
+
     <link rel="stylesheet" type="text/css" href="css/src/normalize.css" />
     <link rel="stylesheet" type="text/css" href="css/src/userForm.css" />
     <link rel="stylesheet" type="text/css" href="css/src/header.css" />
@@ -48,27 +48,34 @@
 </head>
 
 <body ng-controller="appController">
-    
+
     <div class="wrapper">
-            
+
         <!-- Here the header will be included -->
         <header></header>
-        
+
         <!-- <ng-include src="'view/src/login.html'"></ng-include> -->
         <ng-view></ng-view>
-        
+
         <!-- Here the footer will be included -->
         <ng-include src="'view/src/footer.html'"></ng-include>
 
     </div>
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function () {
-                navigator.serviceWorker.register('/sw.js');
-            });
+            navigator.serviceWorker.register('./sw.js', { scope: '/' })
+                .then(function (registration) {
+                    var serviceWorker;
+                    if (registration.installing) {
+                        serviceWorker = registration.installing;
+                    } else if (registration.waiting) {
+                        serviceWorker = registration.waiting;
+                    } else if (registration.active) {
+                        serviceWorker = registration.active;
+                    }
+                });
         }
     </script>
-    <script src="sw.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

@@ -5,7 +5,7 @@ const express = require('express');
 const cookieParser = require("cookie-parser");
 const session = require('express-session');
 
-var user = require('./js/userAPI.js');
+var user = require('./nodejs/userAPI.js');
 
 var app = express();
 
@@ -23,8 +23,7 @@ app.use(cors({
 app.use(session({
     secret: "Shh, its a secret!",
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
+    saveUninitialized: true
 }));
 
 app.listen(process.env.PORT || 5000);

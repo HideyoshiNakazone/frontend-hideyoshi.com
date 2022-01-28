@@ -5,7 +5,7 @@
   "background_color": "#2e2e2e",
   "display": "standalone",
   "orientation": "portrait",
-  "start_url": "#!/home",
+  "start_url": "./index.html",
   "icons": [
   {  
     "src": "img/logohideyoshi-red-36x36.png",

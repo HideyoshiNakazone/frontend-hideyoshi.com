@@ -1,0 +1,46 @@
+{
+  "name": "Hideyoshi - Creative Simple Portfolio Page",
+  "short_name": "Hideyoshi",
+  "theme_color": "#2e2e2e",
+  "background_color": "#2e2e2e",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "#!/home",
+  "icons": [
+  {  
+    "src": "img/logohideyoshi-red-36x36.png",
+    "sizes": "36x36",
+    "type": "image/png"
+  },
+  {
+    "src": "img/logohideyoshi-red-48x48.png",
+    "sizes": "48x48",
+    "type": "image/png"
+  },
+  {
+    "src": "img/logohideyoshi-red-72x72.png",
+    "sizes": "72x72",
+    "type": "image/png"
+  },
+  {
+    "src": "img/logohideyoshi-red-96x96.png",
+    "sizes": "96x96",
+    "type": "image/png"
+  },
+  {
+    "src": "img/logohideyoshi-red-144x144.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  },
+  {
+    "src": "img/logohideyoshi-red-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "img/logohideyoshi-red-512x512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+  ]
+}

@@ -5,7 +5,7 @@ const express = require('express');
 const cookieParser = require("cookie-parser");
 const session = require('express-session');
 
-var user = require('./js/node/userAPI.js');
+var user = require('./js/userAPI.js');
 
 var app = express();
 
@@ -13,10 +13,6 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.use(gzippo.staticGzip("" + __dirname + "/"));
-
-app.listen(process.env.PORT || 5000);
 
 app.use(cors({
     origin: [
@@ -27,8 +23,14 @@ app.use(cors({
 app.use(session({
     secret: "Shh, its a secret!",
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: { secure: true }
 }));
+
+app.listen(process.env.PORT || 5000);
+
+app.use(gzippo.staticGzip("" + __dirname + "/src"));
+
 
 
 app.all('*', function (req, res, next) {
@@ -53,7 +55,7 @@ app.get('/session/validate/', validatePayloadMiddleware, function (req, res) {
     if (req.session.client) {
         res.send(req.session.client);
     } else {
-        res.status(403).send(false)
+        res.status(200).send(false)
     }
 });
 

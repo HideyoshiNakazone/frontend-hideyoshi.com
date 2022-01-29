@@ -23,6 +23,40 @@ var headerController = function ($scope, $rootScope, $http, $uibModal, $log) {
 
     // Declaring the Menu Handler function
 
+    var navLinkAnimate = function () {
+        var arrayNodes = Array.prototype.slice.call(Links, 0);
+        if (!menuOpen) {
+            //Animate Links
+            arrayNodes.reverse().forEach(function (link, index) {
+                link.style.animation = `navFade 0.5s ease backwards ${index / 14}s`;
+            });
+    
+            const rows = Links.length
+            profileBtn.style.animation = `navFade 0.5s ease backwards ${(rows + 1) / 14}s`;
+        } else {
+            const rows = Links.length
+            profileBtn.style.animation = `navUnfade 0.5s ease forwards ${(rows + 1) / 7 + 0.2}s`
+            
+            arrayNodes.forEach(function (link,index) {
+                link.style.animation = `navUnfade 0.5s ease forwards ${index / 7 + 0.2}s`
+            });
+        }
+
+    }
+
+    var userLinkAnimate = function () {
+        var arrayNodes = Array.prototype.slice.call(userSpaces, 0);
+        //Animate Links
+        if (!userOpen) {
+            arrayNodes.reverse().forEach((space, index) => {
+                space.style.animation = `navFade 0.5s ease backwards ${index / 18}s`;            });
+        } else {
+            arrayNodes.forEach((space, index) => {
+                space.style.animation = `navUnfade 0.5s ease forwards ${index / 14}s`
+            });
+        }
+    }
+
     mnBtn.addEventListener('click', () => {
         //Toggle Nav
         if (!menuOpen) {
@@ -32,59 +66,35 @@ var headerController = function ($scope, $rootScope, $http, $uibModal, $log) {
             separator.classList.remove('separator-deactive')
             separator.classList.add('separator-active')
             menuOpen = true;
+            navLinkAnimate();
 
+        } else if (menuOpen && userOpen) {
+            profileBtn.classList.remove('open');
+            navUser.classList.remove('nav-active')
+            navUser.classList.add('nav-deactive')
+            userOpen = false;
+            userLinkAnimate();
         } else {
-            if (menuOpen && userOpen) {
-                profileBtn.classList.remove('open');
-                navUser.classList.remove('nav-active')
-                navUser.classList.add('nav-deactive')
-                userOpen = false;
-            } else {
-                mnBtn.classList.remove('open');
-                navLink.classList.remove('nav-active')
-                navLink.classList.add('nav-deactive')
-                separator.classList.remove('separator-active')
-                separator.classList.add('separator-deactive')
-                menuOpen = false;
-            }
+            mnBtn.classList.remove('open');
+            navLink.classList.remove('nav-active')
+            navLink.classList.add('nav-deactive')
+            separator.classList.remove('separator-active')
+            separator.classList.add('separator-deactive')
+            menuOpen = false;
+            navLinkAnimate();
         }
 
-        //Animate Links
-        Links.forEach((link, index) => {
-            if (!menuOpen) {
-                link.style.animation = `navFade 0.5s ease forwards ${index / 7 + 0.5}s`;
-            } else {
-                link.style.animation = `navUnfade 0.5s ease forwards ${index / 7 + 0.5}s`
-            }
-        });
-
-        const rows = Links.length
-        console.log(`We have ${rows} rows`)
-
-        if (!menuOpen) {
-            profileBtn.style.animation = `navFade 0.5s ease forwards ${(rows + 1) / 7 + 0.5}s`;
-        } else {
-            profileBtn.style.animation = `navUnfade 0.5s ease forwards ${(rows + 1) / 7 + 0.5}s`
-        }
 
     });
 
     profileBtn.addEventListener('click', () => {
         //Open User menu
-
         profileBtn.classList.add('open');
         navUser.classList.remove('nav-deactive')
         navUser.classList.add('nav-active')
         userOpen = true;
 
-        //Animate Links
-        userSpaces.forEach((space, index) => {
-            if (!userOpen) {
-                space.style.animation = `navFade 0.5s ease forwards ${index / 7 + 0.5}s`;
-            } else {
-                space.style.animation = `navUnfade 0.5s ease forwards ${index / 7 + 0.5}s`
-            }
-        });
+        userLinkAnimate();
     });
 
     separator.addEventListener('click', () => {
@@ -94,6 +104,7 @@ var headerController = function ($scope, $rootScope, $http, $uibModal, $log) {
             navUser.classList.remove('nav-active')
             navUser.classList.add('nav-deactive')
             userOpen = false;
+            userLinkAnimate();
         } else {
             mnBtn.classList.remove('open');
             navLink.classList.remove('nav-active')
@@ -101,6 +112,7 @@ var headerController = function ($scope, $rootScope, $http, $uibModal, $log) {
             separator.classList.remove('separator-active')
             separator.classList.add('separator-deactive')
             menuOpen = false;
+            navLinkAnimate();
         }
     });
 
@@ -117,9 +129,9 @@ var headerController = function ($scope, $rootScope, $http, $uibModal, $log) {
             component: "loginPopup",
             windowClass: 'app-modal-window'
         }).result.then(function (result) {
-            
+
         }, function (reason) {
-            
+
         });
     };
 
@@ -128,14 +140,14 @@ var headerController = function ($scope, $rootScope, $http, $uibModal, $log) {
             component: "signupPopup",
             windowClass: 'app-modal-window'
         }).result.then(function (result) {
-            
+
         }, function (reason) {
-            
+
         });
     };
 
     $scope.logoutEndSession = function () {
-        $http.post('/session/destroy',{}).then(function () {
+        $http.post('/session/destroy', {}).then(function () {
             delete $rootScope.Client;
             delete $scope.client;
         }, function (error) {

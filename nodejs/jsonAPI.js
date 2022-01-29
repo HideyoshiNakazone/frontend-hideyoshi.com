@@ -1,6 +1,6 @@
 var axios = require('axios');
 
-const baseUrl = "http://json-server-hideyoshi-com.herokuapp.com";
+const baseUrl = "http://localhost:3000";
 const salt = "ThisIsASimpleSalt";
 
 module.exports = {

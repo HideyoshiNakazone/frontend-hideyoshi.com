@@ -9,6 +9,11 @@
     animation-timing-function: linear;
 }
 
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +34,6 @@ h1, h2, h3, h4, a {
 }
 
 .presentation {
-    margin-top: 10vh !important;
     background-image: linear-gradient( #2e2e2e, #222222);
 }
 

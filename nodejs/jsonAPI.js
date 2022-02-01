@@ -4,6 +4,9 @@ const baseUrl = "http://localhost:3000";
 const salt = "ThisIsASimpleSalt";
 
 module.exports = {
+    baseUrl: function () {
+        return baseUrl;
+    },
     getClient: function (client) {
         return axios.get(baseUrl+"/cliente?username="+client.username);
     },

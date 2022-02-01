@@ -1,32 +1,114 @@
-<div class="container-fluid presentation px-0">
-    <div class="container g-0">
-        <div class="row jumbotron text-center justify-content-center align-items-center">
-            <h1>{{app|uppercase}}</h1>
-            <div class="col-10">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id tempor augue, non consequat
-                    magna. Donec non massa libero. Maecenas imperdiet tristique augue sed ultrices. Sed
-                    malesuada massa id enim bibendum efficitur. Nullam non aliquam sem.
-                </p>
+<div class="container contact">
+    <div class="container-fluid presentation px-0">
+        <div class="container g-0">
+            <div class="row jumbotron text-center justify-content-center align-items-center">
+                <h1>Get in Touch</h1>
+                <div class="col-12">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam id tempor augue, non consequat
+                        magna. Donec non massa libero.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container stories">
-    <div class="text-center">
-        <div class="row justify-content-center align-items-center">
-            <form name="cantactForm">
-                <div class="form-group">
-                    <input class="form-control" name="name" placeholder="Nome"/>
-                </div>
-                <div class="form-group">
-                    <input class="form-control" name="email" placeholder="E-mail"/>
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" name="message" placeholder="Digite uma mensagem"></textarea>
-                </div>
-                <button class="btn btn-primary btn-red" type="submit">Enviar</button>
-            </form>
+    <div class="container contact-methods">
+        <div class="row">
+            <div class="container col-8">
+                <form name="signupForm" class=" justify-content-center align-items-center">
+
+                    <div class="form-group mt-3">
+                        <div class="row input-div">
+                            <div class="i">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div class="input-element">
+                                <input type="text" name="full_name" ng-model="client.full_name" ng-required="true"
+                                    ng-minlength="3" ng-maxlength="40" class="input" placeholder="Full Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-messages="signupForm.full_name.$error" ng-if="signupForm.full_name.$dirty">
+                        <div ng-message="required" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Please enter a Name</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div ng-message="minlength" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Minimum lenght of 3 characters</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div ng-message="maxlength" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Maximum lenght of 40 characters</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <div class="row input-div">
+                            <div class="i">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div class="input-element">
+                                <input type="text" name="email" ng-model="client.email" ng-required="true"
+                                    ng-minlength="10" ng-maxlength="40" class="input" placeholder="E-mail">
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$dirty">
+                        <div ng-message="required" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Please enter an E-mail</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div ng-message="minlength" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Minimum lenght of 10 characters</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div ng-message="maxlength" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Maximum lenght of 40 characters</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-row justify-content-center align-items-center">
+                        <button type="submit" class="btn btn-primary" ng-disabled="signupForm.$invalid"
+                            ng-click="createClient(client)" data-dismiss="modal">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="separator-line container d-flex col-1">
+                <p class="justify-content-center align-self-center">
+                    or
+                </p>
+            </div>
+            <div class="container d-flex flex-column justify-content-around align-items-center col-3">
+                <a href=""><img width="120px" height="30px"
+                        src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white&logoWidth=24"
+                        alt=""></a>
+                <a href=""><img width="120px" height="30px"
+                        src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white&logoWidth=24"
+                        alt=""></a>
+                <a href=""><img width="120px" height="30px"
+                        src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&logoWidth=24"
+                        alt=""></a>
+                <a href=""><img width="120px" height="30px"
+                        src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white&logoWidth=24"
+                        alt=""></a>
+                <a href=""><img width="120px" height="30px"
+                        src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&logoWidth=24"
+                        alt=""></a>
+            </div>
         </div>
     </div>
 </div>

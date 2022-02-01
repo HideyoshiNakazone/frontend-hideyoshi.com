@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const session = require('express-session');
 
 var user = require('./nodejs/userAPI.js');
+var jserver = require('./nodejs/userAPI.js');
 
 var app = express();
 
@@ -16,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
     origin: [
-        "http://localhost:5000"
+        jserver.baseUrl
     ], credentials: true
 }));
 
@@ -27,10 +28,7 @@ app.use(session({
 }));
 
 app.listen(process.env.PORT || 5000);
-
 app.use(gzippo.staticGzip("" + __dirname + "/src"));
-
-
 
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');

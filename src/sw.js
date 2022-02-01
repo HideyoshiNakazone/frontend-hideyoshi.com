@@ -1,3 +1,4 @@
+const { fontawesome_src } = require("./lib/fontawesome/srcfile");
 //Latest CACHE_NAME
 var CACHE_NAME = '[v0.1.0] Hideyoshi';
 
@@ -45,8 +46,12 @@ var urlsToCache = [
     '/lib/angular-locale-pt-br/angular-locale_pt-br.js',
     '/lib/angular-messages/angular-messages.js',
     '/lib/angular-route/angular-route.js',
-    'https://kit.fontawesome.com/17169d4074.js'
+    'https://kit.fontawesome.com/17169d4074.js',
+    '/lib/jquery/dist/jquery.slim.min.js',
+    '/lib/bootstrap-4.6.1/css/bootstrap.min.css',
+    '/lib/bootstrap-4.6.1/js/bootstrap.bundle.min.js'
 ];
+urlsToCache += fontawesome_src
 
 self.addEventListener('install', function (event) {
     event.waitUntil(

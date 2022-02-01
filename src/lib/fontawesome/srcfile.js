@@ -1,5 +1,5 @@
 module.exports = {
-    fontawesome_src: function () {
+    src: function () {
         return [
             "/lib/fontawesome/LICENSE.txt",
             "/lib/fontawesome/css/all.css",

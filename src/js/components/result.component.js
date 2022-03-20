@@ -2,7 +2,6 @@ class clientResultController {
     constructor($scope, $rootScope, status) {
         
         var $ctrl = this;
-        // console.log(status);
 
         $ctrl.$onInit = function () {
             $ctrl.modalData = $ctrl.resolve.modalData;

@@ -1,1 +1,1 @@
-angular.module("portifolio", ["ngMessages","ngRoute",'ui.bootstrap'])
+angular.module("portifolio", ["ngMessages","ngRoute","ui.bootstrap"])

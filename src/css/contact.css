@@ -1,39 +1,23 @@
-.contact .presentation, .contact .stories {
+.contact .presentation,
+.contact .stories {
     background-image: unset;
 }
+
 .contact .presentation h1 {
     color: #818181
 }
-.separator-line p {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
+
+.separator-line {
+    height: 100%; 
+    text-align: center; 
+    border-left: 2px solid #d9d9d9; 
+    line-height: 0.1em;
 }
-.separator-line p::before {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 42%;
-    top: 0;
-    left: 50%;
-    right: 50%;
-    border: 1px solid #9a9a9a;
-    border-width: 0 0 0 1px;
-}
-.separator-line p::after {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 42%;
-    bottom: 0;
-    left: 50%;
-    right: 50%;
-    border: 1px solid #9a9a9a;
-    border-width: 0 0 0 1px;
-}
+
 .contact-methods .input-div {
     margin-top: 30px;
+    background-color: #f5f5f5;
+    border-radius: 3px;
     border-bottom: 2px solid #d9d9d9;
     position: relative;
 }
@@ -66,10 +50,16 @@
     z-index: 1;
 }
 
+.contact-methods .input-div .input-element textarea,
 .contact-methods .input-div .input-element input {
+    padding: 0 20px;
     background-color: transparent;
     border: 0px solid;
     height: 45px;
+}
+
+.contact-methods .input-div .input-element textarea {
+    height: 100px;
 }
 
 .contact-methods .input-div:hover:after {
@@ -82,11 +72,27 @@
     transition: .3s;
 }
 
+.contact-methods .input-div:hover>.input-element>textarea::placeholder,
 .contact-methods .input-div:hover>.input-element>input::placeholder {
     color: #f44336;
 }
 
+.contact-methods .input-div .input-element textarea::placeholder,
 .contact-methods .input-div .input-element input::placeholder {
+    padding-left: 10px;
+    border: 0px solid;
+    outline: none;
+    color: #999;
+    font-family: 'poppins', sans-serif;
+}
+
+.contact-methods .input-div .input-element textarea::placeholder {
+    padding-top: 10px;
+    padding-left: 50px;
+}
+
+.contact-methods .input-div .input-title input::placeholder {
+    padding-left: 50px;
     border: 0px solid;
     outline: none;
     color: #999;
@@ -94,6 +100,20 @@
 }
 
 .contact-methods .input-div .input-element textarea:focus,
-.contact-methods .input-div .input-element  input:focus {
+.contact-methods .input-div .input-element input:focus {
     outline: none;
+}
+
+@media screen and (max-width: 575px) {
+    .separator-container {
+        height: 100px;
+        width: 500px;
+    }
+    .separator-line {
+        height: 1px;
+        width: 100%;
+        text-align: center;
+        border: none;
+        border-bottom: 2px solid #d9d9d9;
+    }
 }

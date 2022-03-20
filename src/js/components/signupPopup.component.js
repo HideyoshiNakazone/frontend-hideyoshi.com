@@ -1,5 +1,5 @@
 class signupPopupController {
-    constructor($scope, $rootScope, $http, $uibModal) {
+    constructor($scope, $rootScope, $http, $uibModal, backEndUrl) {
         
         var $ctrl = this;
 
@@ -13,8 +13,14 @@ class signupPopupController {
             $ctrl.modalInstance.dismiss("cancel");
         };
 
+        var createAuthentication = function(username, password) {
+            return btoa(username+':'+password).toString();
+        }
+
         $scope.loginClient = function (client) {
-            $http.post("/user/validate", client, { withCredentials: true }).then(function (response) {
+            $http.get(backEndUrl + "/client/validate", 
+            {withCredentials: true, headers: {'Authorization': 'Basic '+ createAuthentication(client.username, client.password)}})
+            .then(function (response) {
 
                 $rootScope.Client = response.data;
                 $rootScope.clientStatus = 0;
@@ -32,7 +38,10 @@ class signupPopupController {
         };
             
         $scope.createClient = function (client) {
-            $http.post("/user/create", client).then(function (response) {
+
+            $http.post(backEndUrl + "/client/admin/create", client, 
+            {withCredentials: true, headers: {'Authorization': 'Basic '+ createAuthentication("YoshiUnfriendly", "passwd")}})
+            .then(function (response) {
 
                 $scope.loginClient(client);
 

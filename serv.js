@@ -1,33 +1,19 @@
-const jade = require('jade');
-const cors = require("cors");
-const gzippo = require('gzippo');
-const morgan = require('morgan');
+const compression = require('compression')
 const express = require('express');
-const cookieParser = require("cookie-parser");
-const session = require('express-session');
-
-// var user = require('./nodejs/userAPI.js');
-// var jserver = require('./nodejs/userAPI.js');
 
 var app = express();
+app.use(compression({ filter: shouldCompress }))
 
-app.use(morgan('dev'));
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+function shouldCompress (req, res) {
+    if (req.headers['x-no-compression']) {
+        return false
+    }
+
+    return compression.filter(req, res)
+}
 
 app.listen(process.env.PORT || 5000);
-app.use(gzippo.staticGzip("" + __dirname + "/src"));
-
-app.all('*', function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    res.header("Access-Control-Allow-Credentials", "true");
-    next();
-});
-
-var options = {};
+app.use("/", express.static( __dirname + "/src"));
 
 app.get('/backend.js', function(req, res){
     res.send("var BACKEND='"+process.env.BACKEND+"'");

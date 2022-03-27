@@ -1,6 +1,6 @@
 class signupPopupController {
-    constructor($scope, $rootScope, $http, $uibModal, backEndUrl) {
-        
+    constructor($scope, $rootScope, $http, $uibModal, clientAPI, backEndUrl) {
+
         var $ctrl = this;
 
         $ctrl.$onInit = function () {
@@ -13,48 +13,37 @@ class signupPopupController {
             $ctrl.modalInstance.dismiss("cancel");
         };
 
-        var createAuthentication = function(username, password) {
-            return btoa(username+':'+password).toString();
-        }
-
         $scope.loginClient = function (client) {
-            $http.get(backEndUrl + "/client/validate", 
-            {withCredentials: true, headers: {'Authorization': 'Basic '+ createAuthentication(client.username, client.password)}})
-            .then(function (response) {
 
-                $rootScope.Client = response.data;
-                $rootScope.clientStatus = 0;
+            clientAPI.validadeClient(client)
+                .then(function (response) {
 
-                $ctrl.handleDismiss();
-                $scope.openClientResult();
+                    $rootScope.Client = response.data;
+                    sessionAPI.setSession(response.data);
+                    $rootScope.clientStatus = 0;
 
-            }, function (error) {
+                    $ctrl.handleDismiss();
+                    $scope.openClientResult();
 
-                $rootScope.clientStatus = error.data;
-                $ctrl.handleDismiss();
-                $scope.openClientResult();
+                }, function (error) {
 
-            });
+                    $rootScope.clientStatus = error.data;
+                    $ctrl.handleDismiss();
+                    $scope.openClientResult();
+
+                });
         };
-            
+
         $scope.createClient = function (client) {
 
-            $http.post(backEndUrl + "/client/admin/create", client, 
-            {withCredentials: true, headers: {'Authorization': 'Basic '+ createAuthentication("YoshiUnfriendly", "passwd")}})
-            .then(function (response) {
+            console.log(client);
 
-                $scope.loginClient(client);
+            clientAPI.createClient(client)
+                .then(function (response) {
 
-                $ctrl.handleDismiss();
-                $scope.openClientResult();
+                    $scope.loginClient(response.data);
 
-            }, function (error) {
-
-                $scope.clientStatus = error.data;
-                $ctrl.handleDismiss();
-                $scope.openClientResult();
-
-            });
+                });
         };
 
         $scope.openClientResult = function (status) {
@@ -62,9 +51,9 @@ class signupPopupController {
                 component: "clienteResult",
                 status: status
             }).result.then(function (result) {
-                
+
             }, function (reason) {
-                
+
             });
         };
     }

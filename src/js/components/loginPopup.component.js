@@ -1,5 +1,5 @@
 class loginPopupController {
-    constructor($scope, $rootScope, $http, $uibModal, backEndUrl) {
+    constructor($scope, $window, $rootScope, $http, $uibModal, clientAPI, sessionAPI) {
 
         var $ctrl = this;
 
@@ -13,17 +13,10 @@ class loginPopupController {
             $ctrl.modalInstance.dismiss("cancel");
         };
 
-        var createAuthentication = function (username, password) {
-            return btoa(username + ':' + password).toString();
-        }
-
         $scope.loginClient = function (client) {
 
-            $http.get(backEndUrl + "/client/validate",
-                { withCredentials: true, headers: { 'Authorization': 'Basic ' + createAuthentication(client.username, client.password) } })
+            clientAPI.validadeClient(client)
                 .then(function (response) {
-
-                    withCredentials: true
 
                     $rootScope.Client = response.data;
                     $rootScope.clientStatus = 0;

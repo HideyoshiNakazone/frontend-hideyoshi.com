@@ -1,4 +1,4 @@
-var headerController = function ($scope, $rootScope, $http, $uibModal, $log, backEndUrl) {
+var headerController = function ($scope, $rootScope, $http, $uibModal, sessionAPI, backEndUrl) {
 
     const mnBtn = document.querySelector('.menu');
     const navLink = document.querySelector('.nav-links');
@@ -146,13 +146,8 @@ var headerController = function ($scope, $rootScope, $http, $uibModal, $log, bac
         });
     };
 
-    var createAuthentication = function(username, password) {
-        return btoa(username+':'+password).toString();
-    }
-
     $scope.logoutEndSession = function () {
-        $http.get(backEndUrl + '/session/destroy', 
-        {withCredentials: true, headers: {'Authorization': 'Basic '+ createAuthentication("YoshiUnfriendly", "passwd")}})
+        sessionAPI.destroySession()
         .then(function (response) {
             delete $rootScope.Client;
             delete $scope.client;

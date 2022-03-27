@@ -1,26 +1,23 @@
-angular.module("portifolio").controller("appController", function ($scope, $rootScope, $http, backEndUrl) {
+(function () {
 
-    $rootScope.app = "Hideyoshi Portifolio";
+    'use strict';
 
-    var createAuthentication = function(username, password) {
-        return btoa(username+':'+password).toString();
-    }
+    angular.module("portifolio").controller("appController", function ($rootScope, sessionAPI) {
 
+        $rootScope.app = "Hideyoshi Portifolio";
+    
+        (function () {
+            sessionAPI.validateSession()
+            .then(function (response) {
+                if (response) {
+                    console.log(response);
+                    $rootScope.Client = response.data;
+                } else {
+                    $rootScope.Client = null;
+                }
+            });
+        })();
+    
+    });
 
-    var validateSession = function () {
-        $http.get(backEndUrl + '/session/validate',
-        {withCredentials: true, headers: {
-            'Authorization': 'Basic '+ createAuthentication("YoshiUnfriendly", "passwd")}})
-        .then(function (response) {
-            if (response) {
-                console.log(response);
-                $rootScope.Client = response.data;
-            } else {
-                $rootScope.Client = null;
-            }
-        });
-    }
-
-    validateSession();
-
-});
+})();

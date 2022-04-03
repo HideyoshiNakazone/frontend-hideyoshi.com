@@ -8,5 +8,5 @@ RUN npm install
 COPY . .
 
 ENV BACKEND=${BACKEND}
-EXPOSE 5000
+EXPOSE ${PORT}
 ENTRYPOINT ["node", "serv.js"]

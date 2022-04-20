@@ -1,0 +1,95 @@
+<div class="header">
+    <div class="principal">
+        <div class="logo">
+            <a href="/">
+                <img src="./img/logohideyoshi-white.png" alt="">
+            </a>
+        </div>
+        <div class="separator"></div>
+        <div class="nav-links">
+            <ul class="link-container">
+                <li><a href="#!/">Home</a></li>
+                <li><a href="#!/">Work</a></li>
+                <li><a href="#!/contact">Contact</a></li>
+                <li><a href="#!/">About</a></li>
+            </ul>
+            <div class="profile btn">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+        <div ng-if="$root.Client" class="user dropdown">
+            <div class="profile btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fas fa-user"></i>
+            </div>
+            <ul class="user-menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li>
+                    <h3>{{$root.Client.username}}</h3>
+                </li>
+                <li>
+                    <div class="dropdown-item">
+                        <i class="fas fa-user"></i><a href="#">My Profile</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown-item">
+                        <i class="icon-box fas fa-edit"></i><a href="#">Edit Profile</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown-item">
+                        <i class="icon-box fas fa-question-circle"></i><a href="#">Help</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown-item">
+                        <i class="icon-box fas fa-sign-out-alt"></i><a href="#" ng-click="logoutEndSession()">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div ng-if="!$root.Client" class="user dropdown">
+            <div class="profile btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fas fa-user"></i>
+            </div>
+            <ul class="user-menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li>
+                    <h3>User Account</h3>
+                </li>
+                <li>
+                    <div class="dropdown-item">
+                        <i class="icon-box fas fa-user"></i> <a href="#" ng-click="openLoginPopup()">Login</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown-item">
+                        <i class="icon-box fas fa-edit"></i> <a href="#" ng-click="openSignupPopup()">Sign
+                            up</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="menu">
+            <div class="burger">
+            </div>
+        </div>
+        <div class="nav-user">
+            <ul ng-show="$root.Client" class="link-container">
+                <li><i class="icon-box fas fa-user"></i><a href="#">My Profile</a></li>
+                <li><i class="icon-box fas fa-edit"></i><a href="#">Edit Profile</a></li>
+                <li><i class="icon-box fas fa-inbox"></i><a href="#">Inbox</a></li>
+                <li><i class="icon-box fas fa-cogs"></i><a href="#">Settings</a></li>
+                <li><i class="icon-box fas fa-question-circle"></i><a href="#">Help</a></li>
+                <li><i class="icon-box fas fa-sign-out-alt"></i><a href="#" ng-click="logoutEndSession()">Logout</a></li>
+            </ul>
+            <ul ng-show="!$root.Client" class="link-container">
+                <li><i class="icon-box fas fa-user"></i><a href="#" ng-click="openLoginPopup()">Login</a></li>
+                <li><i class="icon-box fas fa-edit"></i><a href="#" ng-click="openSignupPopup()">SignUp</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="header-spacer"></div>

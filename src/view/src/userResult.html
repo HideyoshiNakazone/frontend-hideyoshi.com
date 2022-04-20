@@ -1,0 +1,15 @@
+<div class="modal-content">
+    <div class="modal-header justify-content-center align-items-center" style="border-bottom: 0 none;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-ng-click="$ctrl.handleClose()">
+            <span class="close-btn" aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body container mt-3">
+        <div ng-if="$root.clientStatus == 0" class="alert alert-success" role="alert">
+            Welcome {{$root.Client.username}}!
+        </div>
+        <div ng-if="$root.clientStatus != 0" class="alert alert-danger" role="alert">
+            {{$root.clientStatus}}
+        </div>
+    </div>
+</div>

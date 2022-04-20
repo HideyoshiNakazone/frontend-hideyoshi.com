@@ -1,0 +1,150 @@
+<div class="modal-header justify-content-center align-items-center" style="border-bottom: 0 none;">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-ng-click="$ctrl.handleClose()">
+        <span class="close-btn" aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body container  justify-content-center align-items-center">
+    <div class="row justify-content-center align-items-center">
+        <img src="img/undraw_profile_pic_ic5t.png">
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <h2>WELCOME</h2>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <form name="signupForm" class=" justify-content-center align-items-center">
+
+            <div class="form-group mt-3">
+                <div class="row input-div">
+                    <div class="i">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="input-element">
+                        <input type="text" name="full_name" ng-model="client.fullName" ng-required="true"
+                            ng-minlength="3" ng-maxlength="40" class="input" placeholder="Full Name">
+                    </div>
+                </div>
+            </div>
+            <div ng-messages="signupForm.full_name.$error" ng-if="signupForm.full_name.$dirty">
+                <div ng-message="required" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Please enter a Name</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div ng-message="minlength" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Minimum lenght of 3 characters</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div ng-message="maxlength" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Maximum lenght of 40 characters</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <div class="row input-div">
+                    <div class="i">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="input-element">
+                        <input type="text" name="email" ng-model="client.email" ng-required="true" ng-minlength="10"
+                            ng-maxlength="40" class="input" placeholder="E-mail">
+                    </div>
+                </div>
+            </div>
+            <div ng-messages="signupForm.email.$error" ng-if="signupForm.email.$dirty">
+                <div ng-message="required" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Please enter an E-mail</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div ng-message="minlength" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Minimum lenght of 10 characters</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div ng-message="maxlength" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Maximum lenght of 40 characters</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <div class="row input-div">
+                    <div class="i">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="input-element">
+                        <input type="text" name="username" ng-model="client.username" ng-required="true"
+                            ng-minlength="3" ng-maxlength="20" class="input" placeholder="Username">
+                    </div>
+                </div>
+            </div>
+            <div ng-messages="signupForm.username.$error" ng-if="signupForm.username.$dirty">
+                <div ng-message="required" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Please enter a Username</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div ng-message="minlength" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Minimum lenght of 3 characters</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div ng-message="maxlength" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Maximum lenght of 20 characters</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <div class="row input-div pass">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="input-element">
+                        <input type="password" autocomplete="off" name="passwd" ng-model="client.password" class="input"
+                            ng-required="true" ng-minlength="4" ng-maxlength="20" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            <div ng-messages="signupForm.passwd.$error" ng-if="signupForm.passwd.$dirty">
+                <div ng-message="required" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Please enter a Password</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div ng-message="minlength" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Minimum lenght of 4 characters</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div ng-message="maxlength" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Maximum lenght of 20 characters</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-row justify-content-center align-items-center">
+                <button type="submit" class="btn btn-primary" ng-disabled="signupForm.$invalid"
+                    ng-click="createClient(client)" data-dismiss="modal">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -19,7 +19,6 @@ class signupPopupController {
                 .then(function (response) {
 
                     $rootScope.Client = response.data;
-                    sessionAPI.setSession(response.data);
                     $rootScope.clientStatus = 0;
 
                     $ctrl.handleDismiss();
@@ -35,14 +34,9 @@ class signupPopupController {
         };
 
         $scope.createClient = function (client) {
-
-            console.log(client);
-
             clientAPI.createClient(client)
                 .then(function (response) {
-
-                    $scope.loginClient(response.data);
-
+                    $scope.loginClient(client);
                 });
         };
 

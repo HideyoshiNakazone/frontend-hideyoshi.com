@@ -26,7 +26,7 @@
     
         return {
             validadeClient: _validadeClient,
-            creaerClient: _createClient
+            createClient: _createClient
         };
     });
 })();
